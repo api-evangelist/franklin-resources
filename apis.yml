@@ -26,6 +26,11 @@ tags:
   - Fortune 500
   - Investment Management
   - Asset Management
+  - Financial-Services
+tags_raw:
+  - Fortune 500
+  - Investment Management
+  - Asset Management
   - Financial Services
 url: >-
   https://raw.githubusercontent.com/api-evangelist/franklin-resources/refs/heads/main/apis.yml
