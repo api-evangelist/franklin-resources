@@ -28,11 +28,13 @@ accessModel:
   source: []
   generated: '2026-07-22'
   method: derived
+  source:
+  - {url: 'https://www.franklinresources.com/', status: 301, note: 'declared website redirects to https://www.franklintempleton.com/corporate/ — a different registrable domain (franklinresources.com -> franklintempleton.com), possible rename or acquisition (probed 2026-09-03, roadmap#169)'}
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/franklin-resources.png
 access: 3rd-Party
 created: '2026-03-21'
 modified: '2026-04-28'
-position: Consumer
+position: Consuming
 tags:
   - Fortune 500
   - Investment Management
