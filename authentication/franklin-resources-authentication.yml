@@ -1,0 +1,69 @@
+generated: '2026-09-10'
+method: derived
+source: >-
+  openapi/_original/franklin-resources-productionproductapi-1.0.0.json (Franklin Templeton's own
+  Swagger 2.0 "Detailed Product APIs"), cross-read against the archived developer-portal routes
+  /user/register and /user/login at developer.franklintempleton.com.
+revised: '2026-09-10'
+summary: >-
+  The contract declares NO `securityDefinitions` block at all. Authentication is expressed only as
+  a REQUIRED `Authorization` header parameter on every one of the 7 operations, defaulted in the
+  spec to the literal string "Bearer <Access_Token>" with the description "Access Token (Note:Need
+  to pass Access token, by generating through postman)". That is a bearer-token scheme documented
+  by convention rather than declared, which is why the automated securityScheme derivation finds
+  nothing here: a machine reading this contract cannot tell how to obtain a token, only that one is
+  needed.
+declared_security_schemes: []
+observed_schemes:
+  - id: authorization-bearer-header
+    type: http
+    scheme: bearer
+    in: header
+    name: Authorization
+    declared_in_spec: false
+    expressed_as: required header parameter on every operation
+    spec_default: 'Bearer <Access_Token>'
+    spec_description: 'Access Token (Note:Need to pass Access token, by generating through postman)'
+    applies_to:
+      - GetFundsDetails
+      - GetInvestmentTeam
+      - GetFundNAV
+      - GetDistributionRate
+      - GetNAVHistory
+      - GetDistributionHistory
+      - GetProductAUM
+    token_endpoint: not documented
+    note: >-
+      No token, authorize, refresh or introspection endpoint appears anywhere in the contract. The
+      only issuance instruction Franklin Templeton published is "generate it through Postman",
+      which presupposes a credential handed out through the (now-retired) portal registration flow.
+  - id: x-ft-api-key
+    type: apiKey
+    in: header
+    name: X-FT-API-KEY
+    declared_in_spec: false
+    applies_to: []
+    seen_in: >-
+      A sibling Franklin Templeton API-program Swagger document (the account-opening surface) makes
+      `X-FT-API-KEY` a required header alongside the bearer token. It does NOT appear on the fund
+      data operations captured in this repo, so it is recorded as an observed program-wide
+      convention, not as a scheme on this API.
+    confidence: medium
+onboarding:
+  self_service: false
+  registration_url: http://developer.franklintempleton.com/user/register
+  registration_status: >-
+    RETIRED. The registration and login routes are archived (2019-07-21 through 2023-03-13) and the
+    host has no DNS A record as of 2026-09-10. There is no way to obtain a credential today.
+  contact: WebAPISupport@franklintempleton.com
+oauth2:
+  present: false
+  note: No oauth2 flow, no scope map, no authorization or token URL. No scopes/ artifact is written.
+mtls:
+  present: false
+openid_connect:
+  present: false
+gaps:
+  - Auth is not machine-declared — an agent reading this contract cannot discover the scheme.
+  - No token endpoint, no credential-lifetime statement, no refresh mechanism.
+  - No scopes, so no least-privilege story for a read-only fund data API.

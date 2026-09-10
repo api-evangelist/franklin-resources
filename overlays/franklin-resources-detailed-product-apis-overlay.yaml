@@ -1,0 +1,78 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements — Franklin Templeton Detailed Product APIs
+  version: 1.0.0
+extends: ../openapi/franklin-resources-detailed-product-apis-openapi.yml
+x-provenance:
+  generated: '2026-09-10'
+  method: derived
+  source: >-
+    openapi/_original/franklin-resources-productionproductapi-1.0.0.json plus this repo's
+    lifecycle/, conformance/ and authentication/ artifacts. Records API Evangelist's findings
+    WITHOUT mutating Franklin Templeton's own contract. Nothing here is presented as the
+    provider's own documentation.
+actions:
+  - target: $.info
+    description: >-
+      Record the observed lifecycle state. Both hosts named by this contract
+      (api.franklintempleton.com, and api-dev.franklintempleton.com in the `host` field of the
+      latest revision) had no DNS A record when probed on 2026-09-10, and the developer portal
+      that fronted this API is archived only.
+    update:
+      x-api-evangelist-lifecycle:
+        status: retired
+        checked: '2026-09-10'
+        api_host_resolves: false
+        developer_portal_resolves: false
+        sunset_announced: false
+        detail: lifecycle/franklin-resources-lifecycle.yml
+  - target: $.info
+    description: >-
+      Record the host disagreement inside Franklin Templeton's own SwaggerHub organization: the
+      revision named "ProductionProductAPI" (last modified 2019-10-22) carries
+      host `api-dev.franklintempleton.com`, while the two earlier revisions of the identical
+      document ("MyApi-Dev" and "your-api", 2019-06) carry `api.franklintempleton.com`. The
+      production host is the one corroborated by Internet Archive captures of live /v1 responses.
+    update:
+      x-api-evangelist-host-note:
+        declared_host: api-dev.franklintempleton.com
+        production_host: api.franklintempleton.com
+        basis: sibling revisions in the same first-party SwaggerHub organization + archived live /v1 captures
+  - target: $
+    description: >-
+      Declare the tag the operations already use. All 7 operations carry the tag "Detailed Product
+      APIs", but the contract has no top-level `tags` block declaring it.
+    update:
+      tags:
+        - name: Detailed Product APIs
+          description: Read-only reference, valuation and distribution data for Franklin Templeton funds.
+  - target: $.paths.*.get
+    description: >-
+      Annotate every operation with the securities-identifier namespaces it accepts. These are
+      stated in the `FundType` parameter description as free prose; this lifts them into a
+      machine-readable list. See conformance/franklin-resources-conformance.yml.
+    update:
+      x-identifier-namespaces:
+        open_standards: [ISIN, CUSIP, SEDOL, WKN, VALEREN_SYMBOL, Fund_CIC]
+        vendor: [BLOOMBERG_IDENTIFIER, LIPPER_IDENTIFIER, REUTERS_SYMBOL, MEXID]
+        proprietary: [FT_FUND_KEY, TICKER, ALL]
+  - target: $.paths.*.get
+    description: >-
+      Record that authentication is required but never declared as a security scheme. The contract
+      has no `securityDefinitions`; auth exists only as a required `Authorization` header
+      parameter. See authentication/franklin-resources-authentication.yml.
+    update:
+      x-api-evangelist-auth:
+        scheme: bearer
+        declared_as_security_scheme: false
+        token_endpoint_documented: false
+  - target: $.paths.*.get
+    description: >-
+      Record the read-only classification. All 7 operations are GET with no side effects, which is
+      why idempotency, dry-run and reversibility are `na` rather than absent in
+      conventions/franklin-resources-conventions.yml.
+    update:
+      x-agentic-access:
+        action_class: read
+        consequence: none
+        reversibility: na

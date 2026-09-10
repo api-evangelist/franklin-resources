@@ -1,0 +1,32 @@
+generated: '2026-09-10'
+method: searched
+source: >-
+  openapi/_original/franklin-resources-productionproductapi-1.0.0.json plus a search of the current
+  www.franklintempleton.com site (sitemap us-retail_staticsitemap.xml, 245 URLs, fetched
+  2026-09-10) and the archived developer.franklintempleton.com routes for a rate-limit or usage
+  policy page.
+revised: '2026-09-10'
+limit_count: 0
+summary: >-
+  Franklin Templeton publishes NO rate limits for the Detailed Product APIs. The contract declares
+  no 429 response on any of the 7 operations, names no RateLimit-* or X-RateLimit-* response
+  headers, and no Retry-After. The developer portal that would have carried a usage policy is
+  retired and its archived route list contains no rate-limit or quota page. This is an honest zero,
+  measured — not an unchecked field.
+rate_limits: []
+response_headers: []
+status_on_exhaustion: null
+retry_after: null
+probed:
+  - url: https://www.franklintempleton.com/sitemap.xml
+    status: 200
+    note: no developer, API, quota or usage-policy route in any child sitemap
+    checked: '2026-09-10'
+  - url: https://developer.franklintempleton.com/documentation
+    status: no DNS A record
+    note: archived 2019-07-21; host decommissioned
+    checked: '2026-09-10'
+note: >-
+  A sibling Franklin Templeton API-program document does declare a 429 "Too Many Request" response,
+  which shows the program contemplated throttling — but that document is not this API's contract
+  and carries no numbers, windows or headers either, so it changes nothing here.

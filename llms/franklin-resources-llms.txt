@@ -1,0 +1,74 @@
+# Franklin Templeton (US)
+
+> Franklin Templeton provides investment products, model portfolios, investment capabilities, market insights, and investor education resources.
+
+## Exchange-Traded Funds (ETFs)
+
+- [Franklin International Low Volatility High Dividend Index ETF (LVHI)](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/91481/SINGLCLASS/franklin-international-low-volatility-high-dividend-index-etf/LVHI)
+- [Franklin FTSE India ETF (FLIN)](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/26348/SINGLCLASS/franklin-ftse-india-etf/FLIN)
+- [Franklin U.S. Large Cap Multifactor Index ETF (FLQL)](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/25773/SINGLCLASS/franklin-u-s-large-cap-multifactor-index-etf/FLQL)
+- [Franklin U.S. Equity Index ETF (USPX)](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21414/SINGLCLASS/franklin-u-s-equity-index-etf/USPX)
+- [Franklin International Core Dividend Tilt Index ETF (DIVI)](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/21412/SINGLCLASS/franklin-international-core-dividend-tilt-index-etf/DIVI)
+- [Franklin Income Focus ETF (INCM)](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/36262/SINGLCLASS/franklin-income-focus-etf/INCM)
+- [Putnam Focused Large Cap Value ETF (PVAL)](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39434/SINGLCLASS/putnam-focused-large-cap-value-etf/PVAL)
+
+## Digital Asset ETFs
+
+- [Franklin Bitcoin ETF (EZBC)](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/39639/SINGLCLASS/franklin-bitcoin-etf/EZBC)
+- [Franklin Ethereum ETF (EZET)](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/40521/SINGLCLASS/franklin-ethereum-etf/EZET)
+- [Franklin Crypto Index ETF (EZPZ)](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/41786/SINGLCLASS/franklin-crypto-index-etf/EZPZ)
+- [Franklin XRP ETF (XRPZ)](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47318/SINGLCLASS/franklin-xrp-etf/XRPZ)
+- [Franklin Solana ETF (SOEZ)](https://www.franklintempleton.com/investments/options/exchange-traded-funds/products/47315/SINGLCLASS/franklin-solana-etf/SOEZ)
+
+## Mutual Funds
+
+- [Franklin Income Fund](https://www.franklintempleton.com/investments/options/mutual-funds/products/4309/A/franklin-income-fund/FKIQX)
+- [Franklin Rising Dividends Fund](https://www.franklintempleton.com/investments/options/mutual-funds/products/4358/A/franklin-rising-dividends-fund/FRDPX)
+- [Franklin DynaTech Fund](https://www.franklintempleton.com/investments/options/mutual-funds/products/4308/A/franklin-dyna-tech-fund/FKDNX)
+- [ClearBridge Large Cap Growth Fund](https://www.franklintempleton.com/investments/options/mutual-funds/products/90132/AA2/clearbridge-large-cap-growth-fund/SBLGX)
+- [ClearBridge International Growth Fund](https://www.franklintempleton.com/investments/options/mutual-funds/products/90096/AA2/clearbridge-international-growth-fund/LGGAX)
+- [ClearBridge Dividend Strategy Fund](https://www.franklintempleton.com/investments/options/mutual-funds/products/90017/AA2/clearbridge-dividend-strategy-fund/SOPAX)
+- [ClearBridge Value Fund](https://www.franklintempleton.com/investments/options/mutual-funds/products/90007/C/clearbridge-value-fund/LMVTX)
+- [Putnam Large Cap Growth Fund](https://www.franklintempleton.com/investments/options/mutual-funds/products/38964/A/putnam-large-cap-growth-fund/POGAX)
+- [Putnam Large Cap Value Fund](https://www.franklintempleton.com/investments/options/mutual-funds/products/38906/A/putnam-large-cap-value-fund/PEYAX)
+- [Putnam International Value Fund](https://www.franklintempleton.com/investments/options/mutual-funds/products/38967/A/putnam-international-value-fund/PNGAX)
+- [Royce Small Cap Fund](https://www.franklintempleton.com/investments/options/mutual-funds/products/90557/IVA/royce-small-cap-fund/PENNX)
+
+## Model Portfolios
+
+- [Model Portfolios Overview](https://www.franklintempleton.com/investments/model-portfolios)
+- [Explore Model Portfolios](https://www.franklintempleton.com/investments/model-portfolios/explore-model-portfolios)
+
+## Investment Capabilities
+
+- [Equity](https://www.franklintempleton.com/investments/capabilities/equity)
+- [Fixed Income](https://www.franklintempleton.com/investments/capabilities/fixed-income)
+- [ETFs](https://www.franklintempleton.com/investments/capabilities/etfs)
+- [Digital Assets](https://www.franklintempleton.com/investments/capabilities/digital-assets)
+- [Alternatives](https://www.franklintempleton.com/investments/capabilities/alternatives)
+- [Additional Investment Capabilities](https://www.franklintempleton.com/investments/additional-capabilities)
+
+## Investor Education
+
+- [Thematic ETFs](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/types-of-funds/thematic-etfs)
+- [Passive ETFs](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/types-of-funds/passive-etfs)
+- [Municipal Bond Funds](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/types-of-funds/municipal-bond-funds)
+- [Multi-Asset Funds](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/types-of-funds/multi-asset-funds)
+- [Income Funds](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/types-of-funds/income-funds)
+- [Fixed Income Funds](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/types-of-funds/fixed-income-funds)
+- [Equity Funds](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/types-of-funds/equity-funds)
+- [Emerging Market Funds](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/types-of-funds/emerging-market-funds)
+- [Alternative Funds](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/types-of-funds/alternative-funds)
+- [What Is a Mutual Fund](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/investing-basics/what-is-a-mutual-fund)
+- [What Is a 529 Plan](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/investing-basics/what-is-a-529-plan)
+- [Market Volatility](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/market-volatility)
+- [How to Manage Market Volatility](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/market-volatility/manage-volatility)
+- [Five Strategies to Deal with Market Volatility](https://www.franklintempleton.com/planning-and-learning/learn-about-investing/market-volatility/five-strategies-to-help-deal-with-market-volatility)
+
+## Featured Resources
+
+- [All Mutual Funds](https://www.franklintempleton.com/investments/options/mutual-funds)
+- [All ETFs](https://www.franklintempleton.com/investments/options/exchange-traded-funds)
+- [Canvas Custom Indexing Platform](https://www.franklintempleton.com/strategies/canvas)
+- [Morningstar 4 and 5 Star Funds](https://www.franklintempleton.com/investments/resources/morningstar-4-and-5-star-funds)
+

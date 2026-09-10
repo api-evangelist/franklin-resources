@@ -1,0 +1,97 @@
+generated: '2026-09-10'
+method: derived
+source: >-
+  openapi/_original/franklin-resources-productionproductapi-1.0.0.json (the `FundKey`/`FundType`
+  parameter descriptions on all 7 operations), plus a search of the current franklintempleton.com
+  site for published compliance/certification claims.
+revised: '2026-09-10'
+summary: >-
+  The contract itself declares a real domain-standard signature: the `FundType` parameter
+  enumerates the securities-identification namespaces the API accepts, and they are the industry's
+  own identifier standards — ISIN, CUSIP, SEDOL, WKN, Valoren, and the Solvency II CIC — not a
+  vendor-specific fund id. A consumer that already speaks those identifiers can call this API with
+  no bespoke mapping table. Nothing else conforms: no OAuth2/OIDC, no RFC 9457, no pagination
+  convention, no idempotency, and none of the capital-markets protocol standards (FIX, MiFID II
+  reporting, ISO 20022) appears anywhere in the contract.
+domain_standard_conformance:
+  market: asset management / investment funds
+  signature: securities-identifier namespaces declared as first-class request parameters
+  evidence_location: >-
+    paths./funds/*.get.parameters[?(@.name=='FundType')].description and the matching `FundKey`
+    description, present identically on all 7 operations, in
+    openapi/_original/franklin-resources-productionproductapi-1.0.0.json
+conformance:
+  - id: isin
+    name: ISIN (ISO 6166 International Securities Identification Number)
+    conforms: true
+    evidence: >-
+      Declared value of the `FundType` parameter ("ISIN") with the identifier passed in `FundKey`,
+      on every operation of openapi/_original/franklin-resources-productionproductapi-1.0.0.json.
+  - id: cusip
+    name: CUSIP (ANSI X9.6 / CUSIP Global Services)
+    conforms: true
+    evidence: Declared `FundType` value "CUSIP" on every operation of the published contract.
+  - id: sedol
+    name: SEDOL (London Stock Exchange Stock Exchange Daily Official List)
+    conforms: true
+    evidence: Declared `FundType` value "SEDOL" on every operation of the published contract.
+  - id: wkn
+    name: WKN (Wertpapierkennnummer, German securities identifier)
+    conforms: true
+    evidence: Declared `FundType` value "WKN" on every operation of the published contract.
+  - id: valoren
+    name: Valoren (Swiss VALOR number)
+    conforms: true
+    evidence: Declared `FundType` value "VALEREN_SYMBOL" on every operation of the published contract.
+  - id: cic
+    name: CIC (Complementary Identification Code, Solvency II asset classification)
+    conforms: true
+    evidence: Declared `FundType` value "Fund_CIC" on every operation of the published contract.
+  - id: vendor-identifiers
+    name: Vendor market-data identifiers (Bloomberg, Lipper, Reuters)
+    conforms: true
+    evidence: >-
+      Declared `FundType` values "BLOOMBERG_IDENTIFIER", "LIPPER_IDENTIFIER", "REUTERS_SYMBOL".
+      Recorded for completeness — these are proprietary vendor namespaces, not open standards.
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      No `securityDefinitions` block of any kind in the contract. Auth is an undeclared bearer
+      header parameter. See authentication/franklin-resources-authentication.yml.
+  - id: oidc
+    conforms: false
+    evidence: No OpenID Connect discovery document on any host — see well-known/franklin-resources-well-known.yml.
+  - id: rfc9457
+    conforms: false
+    evidence: >-
+      Only `400 Invalid Request` is declared, with no schema and no problem+json media type. See
+      errors/franklin-resources-problem-types.yml.
+  - id: pagination
+    conforms: false
+    evidence: No pagination parameters or response fields on any operation, including the two history operations.
+  - id: idempotency
+    conforms: na
+    evidence: >-
+      Read-only API — 7 of 7 operations are GET. Not a gap; see the `idempotency` block in
+      conventions/franklin-resources-conventions.yml.
+  - id: fix-protocol
+    conforms: false
+    evidence: >-
+      On the capital-markets standards shortlist for this sector. Nothing in the contract, the
+      llms.txt, or the current site references FIX.
+  - id: mifid-ii
+    conforms: false
+    evidence: >-
+      No MiFID II transaction/transparency reporting surface is published. Franklin Templeton is
+      subject to MiFID II in the EU/UK, but nothing about it is expressed in an API contract.
+  - id: iso-20022
+    conforms: false
+    evidence: No ISO 20022 message type appears in the contract or on the published site.
+certifications_published: []
+compliance_programs_published: false
+compliance_note: >-
+  No trust center, no SOC 2 / ISO 27001 / PCI listing, and no security-certification page was found
+  on any Franklin Templeton host (probe-security-programs.py, 2026-09-10: vdp=none trust=none). NO
+  `Compliance` and NO `TrustCenter` pointer are emitted. The company publishes regulatory
+  disclosures as an SEC registrant, which is corporate filing, not a published API compliance
+  program.

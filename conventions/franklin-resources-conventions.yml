@@ -1,0 +1,109 @@
+generated: '2026-09-10'
+method: derived
+source: openapi/_original/franklin-resources-productionproductapi-1.0.0.json
+revised: '2026-09-10'
+summary: >-
+  A read-only, seven-operation fund-data API. Every operation is a GET, every operation takes the
+  same four header/query parameters, and there is no mutating surface anywhere in the contract.
+  That single fact settles most of the runtime-semantics questions below as `na` rather than zero.
+auth_style:
+  style: bearer-token-header
+  header: Authorization
+  declared_as_security_scheme: false
+  detail: authentication/franklin-resources-authentication.yml
+content_negotiation:
+  request_header: Accept
+  required: true
+  spec_default: application/json
+  supported:
+    - application/json
+    - application/xml
+  note: >-
+    Unusually, `Accept` is modelled as a REQUIRED parameter rather than an optional negotiation
+    header, so a client that omits it is out of contract. XML and JSON are both first-class.
+resource_identification:
+  pattern: >-
+    Every operation takes `FundKey` + `FundType`, where `FundType` names the identifier NAMESPACE
+    and `FundKey` carries the value. This is a genuine domain convention worth recording: the API
+    accepts industry identifiers directly rather than forcing a vendor-specific id.
+  identifier_namespaces:
+    - ALL
+    - FT_FUND_KEY
+    - MEXID
+    - BLOOMBERG_IDENTIFIER
+    - LIPPER_IDENTIFIER
+    - ISIN
+    - CUSIP
+    - SEDOL
+    - REUTERS_SYMBOL
+    - WKN
+    - VALEREN_SYMBOL
+    - TICKER
+    - Fund_CIC
+  note: ISIN, CUSIP and SEDOL are the ISO/ANSI/national securities identifiers — see conformance/.
+date_range_filtering:
+  params:
+    - FromDate
+    - ToDate
+  applies_to:
+    - GetNAVHistory
+    - GetDistributionHistory
+  format_documented: false
+  note: The contract does not state a date format for FromDate/ToDate. That is a real gap.
+pagination:
+  style: none
+  note: >-
+    No pagination parameters, no cursor, no limit/offset, and no pagination fields in any response.
+    GetNAVHistory and GetDistributionHistory return unbounded ranges bounded only by FromDate/ToDate.
+field_expansion:
+  supported: false
+metadata:
+  supported: false
+request_id_tracing:
+  header: null
+  supported: false
+  note: No correlation/request-id header is documented on request or response.
+versioning:
+  style: path-segment
+  value: /v1
+  detail: lifecycle/franklin-resources-lifecycle.yml
+error_envelope:
+  shape: undocumented
+  note: >-
+    Only `200 OK` and `400 Invalid Request` are declared, and neither carries a response schema. No
+    error body shape is published for this API. The sibling account-opening document in the same
+    Franklin Templeton API program DOES define an envelope
+    (`responseDate` / `isSuccess` / `error.errorList[].code` + `.description`), but that document is
+    not this API's and is not published by the company's own account — see
+    errors/franklin-resources-problem-types.yml.
+rate_limit_signaling:
+  headers: []
+  status_on_exhaustion: null
+  documented: false
+  detail: rate-limits/franklin-resources-rate-limits.yml
+idempotency:
+  coverage: na
+  mechanism: none
+  scope: []
+  note: >-
+    `na`, not `none`. All 7 operations are GET. GET is idempotent by HTTP semantics and there is no
+    mutating surface for a replay-protection mechanism to protect. An idempotency key would be
+    meaningless here, so this must not be scored as a missing capability.
+dry_run_mode:
+  supported: na
+  note: Read-only API — nothing to rehearse.
+reversibility:
+  grade: na
+  write_surface: false
+  reversal_operations: []
+  note: >-
+    `na`. The API has no write surface: 7 of 7 operations are GET, none creates, updates, deletes
+    or transacts anything. There is no action for an agent to take back, so reversibility does not
+    apply and an honest `na` belongs here rather than a zero.
+  checked: '2026-09-10'
+cross_links:
+  authentication: authentication/franklin-resources-authentication.yml
+  errors: errors/franklin-resources-problem-types.yml
+  lifecycle: lifecycle/franklin-resources-lifecycle.yml
+  rate_limits: rate-limits/franklin-resources-rate-limits.yml
+  conformance: conformance/franklin-resources-conformance.yml

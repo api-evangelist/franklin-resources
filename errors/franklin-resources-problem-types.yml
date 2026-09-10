@@ -1,0 +1,52 @@
+generated: '2026-09-10'
+method: derived
+source: openapi/_original/franklin-resources-productionproductapi-1.0.0.json
+revised: '2026-09-10'
+format: none
+rfc9457: false
+summary: >-
+  Franklin Templeton's published contract declares exactly two response codes per operation — 200
+  and 400 — and NEITHER carries a response schema, a description beyond a two-word label, an
+  example, or an error code registry. There is no RFC 7807 / RFC 9457 problem+json, no error
+  envelope, and no documented error-code list anywhere on the current site. This catalogue records
+  what the provider actually declared; it does not invent the codes a fund-data API would plausibly
+  return.
+error_envelope:
+  documented: false
+problem_types:
+  - status: 400
+    title: Invalid Request
+    operations:
+      - GetFundsDetails
+      - GetInvestmentTeam
+      - GetFundNAV
+      - GetDistributionRate
+      - GetNAVHistory
+      - GetDistributionHistory
+      - GetProductAUM
+    schema: none
+    detail_field: null
+    remediation: not published
+    source: >-
+      openapi/_original/franklin-resources-productionproductapi-1.0.0.json — the literal and only
+      declared failure response, `"400": {"description": "Invalid Request"}`.
+undeclared_but_certain:
+  note: >-
+    NOT recorded as problem types, because the provider did not declare them. Every operation
+    requires an `Authorization` bearer token, so a 401 path certainly existed — an Internet Archive
+    capture of https://api.franklintempleton.com/v1/ide/services (2019-10-02) returned a real 401 —
+    but Franklin Templeton never published its shape, and inventing one here would be fabrication.
+related_program_envelope:
+  note: >-
+    A sibling document in the same Franklin Templeton API program (an account-opening surface,
+    hosted on a third party's personal SwaggerHub account and marked "Franklin Templeton
+    Confidential") defines a richer envelope — `responseDate`, `isSuccess`, and
+    `error.errorList[]` of `{code, description}` — with 400/401/404/429/500 all mapped to it. It is
+    recorded here ONLY as context for what the program intended. It is NOT this API's contract, it
+    is not published by Franklin Templeton's own account, and nothing in this repo is derived from
+    it.
+gaps:
+  - No 401/403 declared on an API where every operation requires a bearer token.
+  - No 429 declared, and no rate-limit documentation to pair one with.
+  - No 5xx declared on any operation.
+  - No error code registry, no machine-readable error type URIs, no remediation guidance.

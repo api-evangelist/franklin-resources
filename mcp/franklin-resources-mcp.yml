@@ -1,0 +1,69 @@
+generated: '2026-09-10'
+method: derived
+source: openapi/_original/franklin-resources-productionproductapi-1.0.0.json
+revised: '2026-09-10'
+status: candidate
+summary: >-
+  Franklin Templeton ships NO MCP server, hosted or local. The tool list below is a candidate
+  derived from the 7 operations of the company's own published contract, and it is recorded as a
+  candidate only. DO NOT BUILD FROM IT AS-IS: the backing host, api.franklintempleton.com, has no
+  DNS A record as of 2026-09-10 (see lifecycle/franklin-resources-lifecycle.yml). This artifact
+  documents what an MCP surface over Franklin Templeton fund data WOULD cover if the API were
+  restored; it does not describe anything callable today.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: derived
+search_evidence:
+  - what: hosted/remote MCP server
+    result: none found
+    checked: '2026-09-10'
+  - what: npm/PyPI/NuGet package named for a Franklin Templeton MCP server
+    result: none found — see packages/franklin-resources-packages.yml
+    checked: '2026-09-10'
+  - what: /.well-known/oauth-protected-resource or oauth-authorization-server on any host
+    result: none served — see well-known/franklin-resources-well-known.yml
+    checked: '2026-09-10'
+candidate_tools:
+  - name: get_funds_details
+    rest: GetFundsDetails
+    description: Retrieve reference data for a fund — product type, share classes, name, base currency, identifiers.
+    required_inputs: [FundKey, FundType]
+  - name: get_investment_team
+    rest: GetInvestmentTeam
+    description: Retrieve the investment team associated with a fund.
+    required_inputs: [FundKey, FundType]
+  - name: get_fund_nav
+    rest: GetFundNAV
+    description: Retrieve the current net asset value of a fund.
+    required_inputs: [FundKey, FundType]
+  - name: get_nav_history
+    rest: GetNAVHistory
+    description: Retrieve a fund's NAV time series over a date range.
+    required_inputs: [FundKey, FundType]
+    optional_inputs: [FromDate, ToDate]
+  - name: get_distribution_rate
+    rest: GetDistributionRate
+    description: Retrieve a fund's current distribution rate.
+    required_inputs: [FundKey, FundType]
+  - name: get_distribution_history
+    rest: GetDistributionHistory
+    description: Retrieve a fund's distribution history over a date range.
+    required_inputs: [FundKey, FundType]
+    optional_inputs: [FromDate, ToDate]
+  - name: get_product_aum
+    rest: GetProductAUM
+    description: Retrieve assets under management for a fund.
+    required_inputs: [FundKey, FundType]
+input_schema_note: >-
+  Every tool above would be read-only and safe to expose to an agent, and each inherits the same
+  two-parameter identifier contract (FundKey + FundType, where FundType names the identifier
+  namespace — ISIN, CUSIP, SEDOL, TICKER and so on). No output schema can be derived: the contract
+  declares no response schema for any operation.
+pointer_basis: >-
+  NO `MCPServer` pointer is emitted. Franklin Templeton operates no MCP server, and a candidate
+  derived from a retired contract must never read as a shipped agent surface. This file is wired
+  as `X-MCPServerCandidate`.

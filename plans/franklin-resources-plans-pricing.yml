@@ -1,0 +1,28 @@
+generated: '2026-09-10'
+method: searched
+source: >-
+  https://www.franklintempleton.com/ (sitemap us-retail_staticsitemap.xml, 245 URLs, fetched
+  2026-09-10) and the archived developer.franklintempleton.com route list.
+revised: '2026-09-10'
+plan_count: 0
+plans: []
+summary: >-
+  There is no API pricing of any kind. Franklin Templeton never published plans, tiers, quotas or a
+  price for the Detailed Product APIs — access was gated behind portal registration at
+  developer.franklintempleton.com/user/register, which is retired. The pricing surface that DOES
+  exist on franklintempleton.com is fund expense ratios and share-class fees, which is investment
+  product pricing, not API pricing, and is deliberately not recorded here as a plan.
+access_model:
+  pricing: not-published
+  onboarding: registration (retired)
+  self_service: false
+  free_tier: unknown
+probed:
+  - url: https://www.franklintempleton.com/sitemap.xml
+    status: 200
+    note: no API pricing, plans or developer-tier route
+    checked: '2026-09-10'
+  - url: http://developer.franklintempleton.com/getting-started
+    status: no DNS A record
+    note: archived 2019-07-21; host decommissioned
+    checked: '2026-09-10'

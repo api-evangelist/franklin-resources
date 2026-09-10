@@ -1,0 +1,121 @@
+generated: '2026-09-10'
+method: probed
+source: live probes of /.well-known/ on every host this record knows
+revised: '2026-09-10'
+summary: >-
+  NOTHING is served. Every /.well-known/ path was probed on the registrable domain, its www host,
+  the retired API/developer hosts named by Franklin Templeton's own OpenAPI, and the Benji digital
+  assets host. www.franklintempleton.com answers HTTP 200 to every /.well-known/* path with the
+  same 11,907-byte single-page-app shell it returns for a URL that does not exist, so those 200s
+  are MISSES, not documents. digitalassets.franklintempleton.com returns an honest 404 body of
+  "Not found". api.franklintempleton.com and developer.franklintempleton.com have no DNS A record
+  at all and could not be probed.
+pointer_basis: >-
+  NO WellKnown pointer and NO SecurityTxt pointer are emitted. Not one path returned a 200 carrying
+  a real document. This file records a measured absence; it must never be read as a presence.
+false_positive_watch: >-
+  CONTROL PROBE: https://www.franklintempleton.com/thisdoesnotexist-xyz123 returns HTTP 200 with a
+  body of exactly 11,907 bytes and an empty <title>. Every /.well-known/* path on that host returns
+  the identical 11,907-byte body. A route that really exists on this host returns a 69,582-byte
+  shell with <title>Franklin Templeton</title>. Any future round that credits a
+  www.franklintempleton.com /.well-known/ 200 as a served document is wrong.
+hosts:
+  - host: https://www.franklintempleton.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        note: soft-404 SPA shell (11907 bytes, identical to the control probe) — treated as a miss
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: soft-404 SPA shell — miss
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        note: soft-404 SPA shell — miss
+      - path: /.well-known/api-catalog
+        status: 200
+        note: soft-404 SPA shell — miss
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        note: soft-404 SPA shell — miss
+      - path: /.well-known/agent-card.json
+        status: 200
+        note: soft-404 SPA shell — miss, NOT an agent card
+      - path: /.well-known/agent.json
+        status: 200
+        note: soft-404 SPA shell — miss, NOT an agent card
+    checked: '2026-09-10'
+  - host: https://franklintempleton.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+        note: apex 301s to https://www.franklintempleton.com/ — probed at the www host instead
+      - path: /.well-known/api-catalog
+        status: 301
+      - path: /.well-known/agent-card.json
+        status: 301
+      - path: /.well-known/agent.json
+        status: 301
+    checked: '2026-09-10'
+  - host: https://www.franklinresources.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+        note: the declared corporate website 301s to https://www.franklintempleton.com/corporate/
+      - path: /.well-known/openid-configuration
+        status: 301
+      - path: /.well-known/oauth-authorization-server
+        status: 301
+      - path: /.well-known/api-catalog
+        status: 301
+      - path: /.well-known/ai-plugin.json
+        status: 301
+      - path: /.well-known/agent-card.json
+        status: 301
+      - path: /.well-known/agent.json
+        status: 301
+    checked: '2026-09-10'
+  - host: https://digitalassets.franklintempleton.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        body: Not found
+      - path: /.well-known/openid-configuration
+        status: 404
+        body: Not found
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        body: Not found
+      - path: /.well-known/api-catalog
+        status: 404
+        body: Not found
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        body: Not found
+      - path: /.well-known/agent-card.json
+        status: 404
+        body: Not found
+      - path: /.well-known/agent.json
+        status: 404
+        body: Not found
+    checked: '2026-09-10'
+  - host: https://api.franklintempleton.com
+    documents:
+      - path: /.well-known/agent-card.json
+        status: null
+        note: >-
+          UNREACHABLE, not absent. This is the host Franklin Templeton's own OpenAPI names in its
+          `host` field. It has no DNS A record as of 2026-09-10 (NOERROR/NODATA from the Cloudflare
+          authoritative nameservers for franklintempleton.com), so no HTTP probe is possible.
+    checked: '2026-09-10'
+  - host: https://developer.franklintempleton.com
+    documents:
+      - path: /.well-known/agent-card.json
+        status: null
+        note: >-
+          UNREACHABLE, not absent. The former developer portal host (archived 2019-07 through
+          2023-03) has no DNS A record as of 2026-09-10.
+    checked: '2026-09-10'
+agent_card:
+  found: false
+  note: >-
+    No A2A agent card exists on any host. No a2a/ artifact and no AgentCard pointer are written.

@@ -1,0 +1,41 @@
+generated: '2026-09-10'
+method: searched
+source: >-
+  Registry sweeps on 2026-09-10 — registry.npmjs.org search (`franklintempleton`, `benji franklin`),
+  pypi.org/pypi/franklintempleton/json, the NuGet v3 search service, plus the GitHub organization
+  lookup and the archived developer.franklintempleton.com/code-samples route.
+revised: '2026-09-10'
+summary:
+  first_party_sdk_count: 0
+  third_party_package_count: 0
+  note: >-
+    Franklin Templeton publishes NO client library in any public package registry, in any language.
+    The retired developer portal did carry a /code-samples page (archived 2019-07-21), but samples
+    are not a distributed SDK and the page is gone. NO `SDKs` pointer is emitted — sdk_count must
+    read a genuine zero here.
+packages: []
+third_party_packages: []
+registries_checked:
+  - registry: npm
+    url: https://registry.npmjs.org/-/v1/search?text=franklintempleton
+    status: 200
+    result: 0 results
+    checked: '2026-09-10'
+  - registry: pypi
+    url: https://pypi.org/pypi/franklintempleton/json
+    status: 404
+    checked: '2026-09-10'
+  - registry: nuget
+    url: https://azuresearch-usnc.nuget.org/query?q=franklintempleton
+    status: 200
+    result: totalHits 0
+    checked: '2026-09-10'
+github_organization:
+  found: false
+  checked: '2026-09-10'
+  note: >-
+    github.com/Franklintempleton exists as a GitHub account but is EMPTY — 0 public repositories,
+    no name, no blog URL, no description (api.github.com/orgs/franklintempleton, 2026-09-10).
+    github.com/franklin-templeton is likewise 0 repositories. Neither carries a single artifact, so
+    NO `GitHubOrganization` pointer is emitted: pointing at an empty namespace would assert a
+    public code presence that does not exist.

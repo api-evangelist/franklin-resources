@@ -1,0 +1,121 @@
+generated: '2026-09-10'
+method: searched
+source: >-
+  SwaggerHub organization account `Franklin-Templeton` (api.swaggerhub.com), live DNS of
+  api.franklintempleton.com and developer.franklintempleton.com, the current
+  www.franklintempleton.com sitemap, and Internet Archive CDX captures of the retired
+  developer portal.
+revised: '2026-09-10'
+headline: >-
+  Franklin Templeton ran a real public developer program — a Drupal-style portal at
+  developer.franklintempleton.com fronting the "Detailed Product APIs" (7 read-only fund-data
+  operations) at https://api.franklintempleton.com/v1 — and RETIRED it without publishing a
+  deprecation notice, a sunset date, or a migration path. Both hosts now have no DNS record.
+  The only surviving machine-readable trace is the company's own SwaggerHub organization, which
+  still serves the Swagger 2.0 contract publicly today.
+status: retired
+versioning:
+  scheme: path-segment
+  current_version: v1
+  notes: >-
+    basePath `/v1` in the provider's own contract. No second version was ever published, and no
+    versioning policy page survives.
+deprecation:
+  policy_documented: false
+  sunset_header: false
+  deprecated_operations: []
+  notes: >-
+    No RFC 8594 Sunset/Deprecation header can be observed because the host does not resolve. No
+    operation in the published contract carries `deprecated: true`. No deprecation policy page
+    exists on the current site. NO `Deprecation` pointer is emitted — recording one would credit
+    Franklin Templeton with a policy it never published, when what actually happened is a silent
+    withdrawal.
+retirement:
+  api: Detailed Product APIs
+  developer_portal:
+    url: http://developer.franklintempleton.com/
+    dns: no A record (NOERROR/NODATA from liz.ns.cloudflare.com, checked 2026-09-10)
+    first_archived: '2019-07-21'
+    last_archived: '2023-03-13'
+    archived_paths:
+      - /apis
+      - /documentation
+      - /getting-started
+      - /code-samples
+      - /detailed-product-apis/apis
+      - /detailed-product-apis/apis/get/funds/GetFundsDetails
+      - /detailed-product-apis/apis/get/funds/GetInvestmentTeam
+      - /detailed-product-apis/apis/get/funds/GetFundNAV
+      - /detailed-product-apis/apis/get/funds/GetDistributionRate
+      - /detailed-product-apis/apis/get/funds/GetNAVHistory
+      - /detailed-product-apis/apis/get/funds/GetDistributionHistory
+      - /detailed-product-apis/apis/get/funds/GetProductAUM
+      - /user/register
+      - /user/login
+      - /legal
+      - /privacy-security
+      - /contact-us-0
+    note: >-
+      The archived portal path structure matches the operationIds in the surviving contract
+      one-for-one, which is what confirms the SwaggerHub document is Franklin Templeton's own
+      published API and not a lookalike.
+  api_host:
+    url: https://api.franklintempleton.com/v1
+    dns: no A record (checked 2026-09-10)
+    archived_evidence:
+      - url: https://api.franklintempleton.com/v1/ide/services
+        archived: '2019-10-02'
+        status: 401
+        note: answered a real 401 when live — the gateway existed
+      - url: https://api.franklintempleton.com/v1/ide/services/mobileAppVersion
+        archived: '2019-05-16'
+        status: 200
+  sunset_announced: false
+  migration_path_published: false
+status_page:
+  published: false
+  probed:
+    - url: https://status.franklintempleton.com
+      status: no DNS A record
+      checked: '2026-09-10'
+  note: >-
+    No status page on any host. NO `StatusPage` pointer is emitted.
+changelog:
+  published: false
+  note: >-
+    No dated API or product changelog is published. The current sitemap
+    (us-retail_staticsitemap.xml, 245 URLs, fetched 2026-09-10) contains no developer, API,
+    changelog or release-notes route. No changelog/ artifact is written.
+sla:
+  documented: false
+roadmap:
+  published: false
+terms:
+  url: https://www.franklintempleton.com/help/terms-of-use
+  api_specific_terms: >-
+    The contract's own `info.termsOfService` points at
+    https://www.franklintempleton.com/investor/help/terms-of-use, and `info.license` (labelled
+    "Apache 2.0", which is almost certainly a Swagger-editor default left in place) points at the
+    corporate contact-us page rather than a licence.
+observations:
+  - >-
+    This is a Fortune 500 asset manager that shipped a public fund-data API, took it down, and left
+    the contract discoverable on its own SwaggerHub organization. Anyone integrating from that
+    contract today would get DNS failure, not a deprecation error.
+  - >-
+    The llms.txt Franklin Templeton publishes at https://www.franklintempleton.com/llms.txt is a
+    genuine first-party document (7,368 bytes, text/plain, fetched 2026-09-10) but it advertises
+    dead routes: of 40 franklintempleton.com links sampled from it, 5 return the site's 11,907-byte
+    soft-404 shell (/investments/additional-capabilities, /investments/capabilities/etfs, and three
+    /planning-and-learning/learn-about-investing/market-volatility* pages). The published sitemap
+    has the same problem — every /insights/best-ideas* URL in us-retail_staticsitemap.xml returns
+    the soft-404 shell. An agent following either document lands on nothing.
+  - >-
+    NO Agent Skill is generated for this provider, deliberately. Skills would be grounded in real
+    operationIds from a real first-party contract, but they would instruct an agent to call
+    api.franklintempleton.com — a host with no DNS record. Publishing them would teach agents to
+    call an API that cannot be reached. No skills/ artifact and no AgentSkill pointer are written.
+  - >-
+    robots.txt on www.franklintempleton.com disallows `/llm.txt` (singular) while the file the site
+    actually serves is `/llms.txt` (plural), which is not disallowed. Probably a typo; recorded
+    because it is the only AI-facing directive the company publishes.

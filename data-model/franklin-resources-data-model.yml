@@ -1,0 +1,74 @@
+generated: '2026-09-10'
+method: derived
+source: openapi/_original/franklin-resources-productionproductapi-1.0.0.json
+revised: '2026-09-10'
+summary: >-
+  There is almost nothing to model, and that IS the finding. The published contract declares no
+  `definitions` block, no `$ref` anywhere, and no response schema on any of the 7 operations — the
+  200 response is literally `{"description": "OK"}`. The entity graph below is therefore derived
+  from the addressing scheme (path + parameters), which the contract does state explicitly, and
+  stops there. No field is listed that Franklin Templeton did not publish.
+schemas_declared: 0
+refs_declared: 0
+response_schemas_declared: 0
+entities:
+  - name: Fund
+    role: the single addressable entity
+    identified_by:
+      - field: FundKey
+        note: the identifier VALUE
+      - field: FundType
+        note: >-
+          the identifier NAMESPACE — one of ALL, FT_FUND_KEY, MEXID, BLOOMBERG_IDENTIFIER,
+          LIPPER_IDENTIFIER, ISIN, CUSIP, SEDOL, REUTERS_SYMBOL, WKN, VALEREN_SYMBOL, TICKER,
+          Fund_CIC
+    evidence: >-
+      Every one of the 7 operations takes exactly this pair, and every path is rooted at /funds/.
+    attributes_published: []
+    attribute_note: >-
+      Not one attribute of a Fund is declared in the contract. Their existence is only implied by
+      the operation names (details, investment team, NAV, distribution rate, AUM).
+projections:
+  - operation: GetFundsDetails
+    returns: fund reference data
+    documented_fields: >-
+      Described in prose only: "product type, share classes, fund name, base currency, and multiple
+      fund identifiers". No schema.
+  - operation: GetInvestmentTeam
+    returns: the people associated with a fund
+    documented_fields: none
+  - operation: GetFundNAV
+    returns: current net asset value
+    documented_fields: none
+  - operation: GetNAVHistory
+    returns: NAV time series, bounded by FromDate/ToDate
+    documented_fields: none
+  - operation: GetDistributionRate
+    returns: current distribution rate
+    documented_fields: none
+  - operation: GetDistributionHistory
+    returns: distribution time series, bounded by FromDate/ToDate
+    documented_fields: none
+  - operation: GetProductAUM
+    returns: assets under management
+    documented_fields: none
+relationships:
+  - from: Fund
+    to: InvestmentTeam
+    kind: has_many
+    via: GetInvestmentTeam (operation-level only — no field, no $ref, no id reference is published)
+    confidence: low
+  - from: Fund
+    to: NAVObservation
+    kind: has_many
+    via: GetNAVHistory (time series keyed by FundKey/FundType + FromDate/ToDate)
+    confidence: low
+  - from: Fund
+    to: DistributionObservation
+    kind: has_many
+    via: GetDistributionHistory
+    confidence: low
+gaps:
+  - No components/definitions, so no reusable schema exists to score or generate from.
+  - No 200 response schema on any operation — a client cannot know the shape without calling it.
+  - No examples anywhere in the contract.
