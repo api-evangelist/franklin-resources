@@ -1,14 +1,12 @@
 aid: franklin-resources
 name: Franklin Resources
-description: >-
-  Franklin Resources, doing business as Franklin Templeton, is a global investment management
-  organization offering investment management and related services to retail, institutional, and
-  high net worth clients. It ran a public developer program — the "Detailed Product APIs", seven
-  read-only fund reference, NAV, distribution and AUM operations at api.franklintempleton.com/v1,
-  fronted by a portal at developer.franklintempleton.com — and retired it without a published
-  deprecation notice. Both hosts now have no DNS record; the Swagger 2.0 contract is still served
-  publicly from Franklin Templeton's own SwaggerHub organization, and the company publishes a
-  first-party llms.txt on its main site.
+description: Franklin Resources, doing business as Franklin Templeton, is a global investment management
+  organization offering investment management and related services to retail, institutional, and high
+  net worth clients. It ran a public developer program — the "Detailed Product APIs", seven read-only
+  fund reference, NAV, distribution and AUM operations at api.franklintempleton.com/v1, fronted by a portal
+  at developer.franklintempleton.com — and retired it without a published deprecation notice. Both hosts
+  now have no DNS record; the Swagger 2.0 contract is still served publicly from Franklin Templeton's
+  own SwaggerHub organization, and the company publishes a first-party llms.txt on its main site.
 type: Index
 deliveryModel:
   model: unknown
@@ -32,101 +30,72 @@ accessModel:
   generated: '2026-09-10'
   method: probed
   source:
-  - {url: 'https://www.franklinresources.com/', status: 301, note: 'declared website redirects to https://www.franklintempleton.com/corporate/ — a different registrable domain (franklinresources.com -> franklintempleton.com), possible rename or acquisition (probed 2026-09-03, roadmap#169)'}
-  - {url: 'http://developer.franklintempleton.com/user/register', status: 0, note: 'the only documented API onboarding path; host has no DNS A record as of 2026-09-10 — archived 2019-07-21 through 2023-03-13'}
+  - url: https://www.franklinresources.com/
+    status: 301
+    note: declared website redirects to https://www.franklintempleton.com/corporate/ — a different registrable
+      domain (franklinresources.com -> franklintempleton.com), possible rename or acquisition (probed
+      2026-09-03, roadmap#169)
+  - url: http://developer.franklintempleton.com/user/register
+    status: 0
+    note: the only documented API onboarding path; host has no DNS A record as of 2026-09-10 — archived
+      2019-07-21 through 2023-03-13
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/franklin-resources.png
 access: 3rd-Party
 created: '2026-03-21'
 modified: '2026-09-10'
 position: Producing
 tags:
-  - Fortune 500
-  - Investment Management
-  - Asset Management
-  - Financial-Services
-  - Mutual Funds
-  - Exchange Traded Funds
-  - Fund Data
-  - Market Data
+- Fortune 500
+- Investment Management
+- Asset Management
+- Financial-Services
+- Mutual Funds
+- Exchange-Traded Funds
+- Fund Data
+- Market Data
 tags_raw:
-  - Fortune 500
-  - Investment Management
-  - Asset Management
-  - Financial Services
-  - Mutual Funds
-  - Exchange Traded Funds
-  - Fund Data
-  - Market Data
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/franklin-resources/refs/heads/main/apis.yml
+- Fortune 500
+- Investment Management
+- Asset Management
+- Financial Services
+- Mutual Funds
+- Exchange Traded Funds
+- Fund Data
+- Market Data
+url: https://raw.githubusercontent.com/api-evangelist/franklin-resources/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
-  - aid: franklin-resources-detailed-product-apis
-    name: Franklin Templeton Detailed Product APIs
-    description: >-
-      Seven read-only GET operations over Franklin Templeton global fund data — fund reference
-      details, investment team, current NAV, NAV history, distribution rate, distribution history
-      and product AUM. Every operation is addressed by a FundKey value plus a FundType namespace,
-      where the namespace may be an industry securities identifier (ISIN, CUSIP, SEDOL, WKN,
-      Valoren, CIC) or a vendor symbol (Bloomberg, Lipper, Reuters, ticker). RETIRED: the base host
-      api.franklintempleton.com has no DNS A record as of 2026-09-10 and the developer portal that
-      fronted it is archived only. The contract remains publicly served from Franklin Templeton's
-      own SwaggerHub organization.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/franklin-resources.png
-    humanURL: https://api.swaggerhub.com/apis/Franklin-Templeton/ProductionProductAPI/1.0.0
-    baseURL: https://api.franklintempleton.com/v1
-    tags:
-      - Fund Data
-      - Market Data
-      - Investment Management
-      - Mutual Funds
-      - Exchange Traded Funds
-    tags_raw:
-      - fund-data
-      - market-data
-      - investment-management
-      - mutual-funds
-      - exchange-traded-funds
-    properties:
-      - type: OpenAPI
-        url: openapi/franklin-resources-detailed-product-apis-openapi.yml
-      - type: OpenAPI
-        url: openapi/_original/franklin-resources-productionproductapi-1.0.0.json
-      - type: Overlay
-        url: overlays/franklin-resources-detailed-product-apis-overlay.yaml
-      - type: Authentication
-        url: authentication/franklin-resources-authentication.yml
-      - type: Conventions
-        url: conventions/franklin-resources-conventions.yml
-      - type: ErrorCatalog
-        url: errors/franklin-resources-problem-types.yml
-      - type: DataModel
-        url: data-model/franklin-resources-data-model.yml
-      - type: Conformance
-        url: conformance/franklin-resources-conformance.yml
-      - type: RateLimits
-        url: rate-limits/franklin-resources-rate-limits.yml
-      - type: Lifecycle
-        url: lifecycle/franklin-resources-lifecycle.yml
-      - type: X-MCPServerCandidate
-        url: mcp/franklin-resources-mcp.yml
-common:
-  - type: DomainSecurity
-    url: security/franklin-resources-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/franklin-templeton
-  - type: Website
-    url: https://www.franklinresources.com/
-  - type: Website
-    name: Franklin Templeton
-    url: https://www.franklintempleton.com/
-  - type: Website
-    name: Franklin Templeton Digital Assets (Benji)
-    url: https://digitalassets.franklintempleton.com/benji/
-  - type: LLMsTxt
-    url: llms/franklin-resources-llms.txt
-  - type: LLMsTxt
-    url: https://www.franklintempleton.com/llms.txt
+- aid: franklin-resources:franklin-resources-detailed-product-apis
+  name: Franklin Templeton Detailed Product APIs
+  description: 'Seven read-only GET operations over Franklin Templeton global fund data — fund reference
+    details, investment team, current NAV, NAV history, distribution rate, distribution history and product
+    AUM. Every operation is addressed by a FundKey value plus a FundType namespace, where the namespace
+    may be an industry securities identifier (ISIN, CUSIP, SEDOL, WKN, Valoren, CIC) or a vendor symbol
+    (Bloomberg, Lipper, Reuters, ticker). RETIRED: the base host api.franklintempleton.com has no DNS
+    A record as of 2026-09-10 and the developer portal that fronted it is archived only. The contract
+    remains publicly served from Franklin Templeton''s own SwaggerHub organization.'
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/franklin-resources.png
+  humanURL: https://api.swaggerhub.com/apis/Franklin-Templeton/ProductionProductAPI/1.0.0
+  baseURL: https://api.franklintempleton.com/v1
+  tags:
+  - Fund Data
+  - Market Data
+  - Investment Management
+  - Mutual Funds
+  - Exchange-Traded Funds
+  tags_raw:
+  - fund-data
+  - market-data
+  - investment-management
+  - mutual-funds
+  - exchange-traded-funds
+  properties:
+  - type: OpenAPI
+    url: openapi/franklin-resources-detailed-product-apis-openapi.yml
+  - type: OpenAPI
+    url: openapi/_original/franklin-resources-productionproductapi-1.0.0.json
+  - type: Overlay
+    url: overlays/franklin-resources-detailed-product-apis-overlay.yaml
   - type: Authentication
     url: authentication/franklin-resources-authentication.yml
   - type: Conventions
@@ -137,35 +106,68 @@ common:
     url: data-model/franklin-resources-data-model.yml
   - type: Conformance
     url: conformance/franklin-resources-conformance.yml
-  - type: Lifecycle
-    url: lifecycle/franklin-resources-lifecycle.yml
   - type: RateLimits
     url: rate-limits/franklin-resources-rate-limits.yml
-  - type: Plans
-    url: plans/franklin-resources-plans-pricing.yml
-  - type: Packages
-    url: packages/franklin-resources-packages.yml
-  - type: Overlay
-    url: overlays/franklin-resources-detailed-product-apis-overlay.yaml
+  - type: Lifecycle
+    url: lifecycle/franklin-resources-lifecycle.yml
   - type: X-MCPServerCandidate
     url: mcp/franklin-resources-mcp.yml
-  - type: X-WellKnownProbe
-    url: well-known/franklin-resources-well-known.yml
-  - type: TermsOfService
-    url: https://www.franklintempleton.com/help/terms-of-use
-  - type: PrivacyPolicy
-    url: https://www.franklintempleton.com/help/privacy-policy
-  - type: Support
-    url: https://www.franklintempleton.com/accounts/accounts-services-support
-  - type: HelpCenter
-    url: https://www.franklintempleton.com/help/faqs
-  - type: Blog
-    url: https://www.franklintempleton.com/insights/investment-themes
+common:
+- type: DomainSecurity
+  url: security/franklin-resources-domain-security.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/franklin-templeton
+- type: Website
+  url: https://www.franklinresources.com/
+- type: Website
+  name: Franklin Templeton
+  url: https://www.franklintempleton.com/
+- type: Website
+  name: Franklin Templeton Digital Assets (Benji)
+  url: https://digitalassets.franklintempleton.com/benji/
+- type: LLMsTxt
+  url: llms/franklin-resources-llms.txt
+- type: LLMsTxt
+  url: https://www.franklintempleton.com/llms.txt
+- type: Authentication
+  url: authentication/franklin-resources-authentication.yml
+- type: Conventions
+  url: conventions/franklin-resources-conventions.yml
+- type: ErrorCatalog
+  url: errors/franklin-resources-problem-types.yml
+- type: DataModel
+  url: data-model/franklin-resources-data-model.yml
+- type: Conformance
+  url: conformance/franklin-resources-conformance.yml
+- type: Lifecycle
+  url: lifecycle/franklin-resources-lifecycle.yml
+- type: RateLimits
+  url: rate-limits/franklin-resources-rate-limits.yml
+- type: Plans
+  url: plans/franklin-resources-plans-pricing.yml
+- type: Packages
+  url: packages/franklin-resources-packages.yml
+- type: Overlay
+  url: overlays/franklin-resources-detailed-product-apis-overlay.yaml
+- type: X-MCPServerCandidate
+  url: mcp/franklin-resources-mcp.yml
+- type: X-WellKnownProbe
+  url: well-known/franklin-resources-well-known.yml
+- type: TermsOfService
+  url: https://www.franklintempleton.com/help/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.franklintempleton.com/help/privacy-policy
+- type: Support
+  url: https://www.franklintempleton.com/accounts/accounts-services-support
+- type: HelpCenter
+  url: https://www.franklintempleton.com/help/faqs
+- type: Blog
+  url: https://www.franklintempleton.com/insights/investment-themes
 x-enrichment:
   date: '2026-09-10'
   status: enriched
   artifacts_added: 16
   pass: local-v3
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
