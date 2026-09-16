@@ -65,37 +65,17 @@ tags_raw:
 url: https://raw.githubusercontent.com/api-evangelist/franklin-resources/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
-- aid: franklin-resources:franklin-resources-detailed-product-apis
-  name: Franklin Templeton Detailed Product APIs
-  description: 'Seven read-only GET operations over Franklin Templeton global fund data — fund reference
-    details, investment team, current NAV, NAV history, distribution rate, distribution history and product
-    AUM. Every operation is addressed by a FundKey value plus a FundType namespace, where the namespace
-    may be an industry securities identifier (ISIN, CUSIP, SEDOL, WKN, Valoren, CIC) or a vendor symbol
-    (Bloomberg, Lipper, Reuters, ticker). RETIRED: the base host api.franklintempleton.com has no DNS
-    A record as of 2026-09-10 and the developer portal that fronted it is archived only. The contract
-    remains publicly served from Franklin Templeton''s own SwaggerHub organization.'
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/franklin-resources.png
+- aid: franklin-resources:franklin-resources-detailed-product-apis-api
+  name: Franklin Resources Detailed Product APIs API
+  description: >-
+    The Detailed Product APIs API from Franklin Resources — 7 operation(s) for detailed product apis.
   humanURL: https://api.swaggerhub.com/apis/Franklin-Templeton/ProductionProductAPI/1.0.0
   baseURL: https://api.franklintempleton.com/v1
   tags:
-  - Fund Data
-  - Market Data
-  - Investment Management
-  - Mutual Funds
-  - Exchange-Traded Funds
-  tags_raw:
-  - fund-data
-  - market-data
-  - investment-management
-  - mutual-funds
-  - exchange-traded-funds
+  - Detailed Product APIs
   properties:
   - type: OpenAPI
-    url: openapi/franklin-resources-detailed-product-apis-openapi.yml
-  - type: OpenAPI
-    url: openapi/_original/franklin-resources-productionproductapi-1.0.0.json
-  - type: Overlay
-    url: overlays/franklin-resources-detailed-product-apis-overlay.yaml
+    url: openapi/franklin-resources-detailed-product-apis-api-openapi.yml
   - type: Authentication
     url: authentication/franklin-resources-authentication.yml
   - type: Conventions
