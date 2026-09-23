@@ -1,7 +1,9 @@
 ---
 title: FRANKLIN RESOURCES INC Earnings Call Transcript ...
 url: https://www.stockinsights.ai/us/BEN/earnings-transcript/fy24-q4-e953
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Franklin Resources" press release artificial intelligence'
 position: 5
 source: serpapi-google

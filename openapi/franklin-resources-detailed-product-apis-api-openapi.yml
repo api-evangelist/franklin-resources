@@ -1,0 +1,332 @@
+openapi: 3.2.0
+info:
+  version: 1.0.0
+  title: Detailed Product APIs API
+  description: This is the FTI global funds information available. You can find out more about Swagger at http://swagger.io or on [irc.freenode.net,
+  termsOfService: https://www.franklintempleton.com/investor/help/terms-of-use
+  contact:
+    name: WEBAPI Support
+    email: WebAPISupport@franklintempleton.com
+  license:
+    name: Apache 2.0
+    url: https://www.franklintempleton.com/investor/approach/firm/contact-us
+servers:
+- url: https://api-dev.franklintempleton.com/v1
+tags:
+- name: Detailed Product APIs
+paths:
+  /funds/GetFundsDetails:
+    get:
+      tags:
+      - Detailed Product APIs
+      summary: Gets the collection of all the products or services offered by Franklin…
+      description: The product details API is a collection of all the products or services offered by Franklin Templeton. Product detail analysis can provide nuanced views on product type, share classes, fund name, base currency, and multiple fund identifiers.
+      operationId: GetFundsDetails
+      parameters:
+      - name: Authorization
+        in: header
+        description: Access Token (Note:Need to pass Access token, by generating through postman)
+        required: true
+        schema:
+          type: string
+          default: Bearer <Access_Token>
+      - name: Accept
+        in: header
+        description: application/xml or application/json
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: FundKey
+        in: query
+        description: FundKey can be any of the following - Leave the value as blank if passing FundType as "ALL", FT_FUND_KEY, MEXID, BLOOMBERG_IDENTIFIER, LIPPER_IDENTIFIER, ISIN, CUSIP, SEDOL, REUTERS_SYMBOL,WKN,VALEREN_SYMBOL, TICKER, Fund_CIC
+        required: true
+        schema:
+          type: string
+          default: null
+      - name: FundType
+        in: query
+        description: FundKey can be any of the following with value associated to FundType - ALL, FT_FUND_KEY, MEXID, BLOOMBERG_IDENTIFIER, LIPPER_IDENTIFIER, ISIN, CUSIP, SEDOL, REUTERS_SYMBOL, WKN, VALEREN_SYMBOL, TICKER, Fund_CIC
+        required: true
+        schema:
+          type: string
+          default: ALL
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid Request
+  /funds/GetInvestmentTeam:
+    get:
+      tags:
+      - Detailed Product APIs
+      summary: Gets the the investment manager(s) that makes investments in portfolios on…
+      description: The Product Investment team API contains the investment manager(s) that are associated to a mutual fund or an exchange-traded fund (ETF).
+      operationId: GetInvestmentTeam
+      parameters:
+      - name: Authorization
+        in: header
+        description: Access Token (Note:Need to pass Access token, by generating through postman)
+        required: true
+        schema:
+          type: string
+          default: Bearer <Access_Token>
+      - name: Accept
+        in: header
+        description: application/xml or application/json
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: FundKey
+        in: query
+        description: FundKey can be any of the following - Leave the value as blank if passing FundType as "ALL", FT_FUND_KEY, MEXID, BLOOMBERG_IDENTIFIER, LIPPER_IDENTIFIER, ISIN, CUSIP, SEDOL, REUTERS_SYMBOL, WKN, VALEREN_SYMBOL, TICKER, Fund_CIC
+        required: true
+        schema:
+          type: string
+          default: US8802081039
+      - name: FundType
+        in: query
+        description: FundType can be any of the following - FundNumber, MEXID, BloombergIdentifier, LipperIdentifier, ISIN, CUSIP, SEDOL, Reuterssymbol, WKN, ValorenSymbol
+        required: true
+        schema:
+          type: string
+          default: ISIN
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid Request
+  /funds/GetFundNAV:
+    get:
+      tags:
+      - Detailed Product APIs
+      summary: Gets the product per share of a mutual fund or an exchange-traded fund (ETF)
+      description: The product NAV API contains the value per share of a mutual fund or an exchange-traded fund (ETF) on a specific date or time. With both security types, the per-share dollar amount of the fund is based on the total value of all the securities in its portfolio, any liabilities the fund has and the number of fund shares outstanding.
+      operationId: GetFundNAV
+      parameters:
+      - name: Authorization
+        in: header
+        description: Access Token (Note:Need to pass Access token, by generating through postman)
+        required: true
+        schema:
+          type: string
+          default: Bearer <Access_Token>
+      - name: Accept
+        in: header
+        description: application/xml or application/json
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: FundKey
+        in: query
+        description: FundKey can be any of the following- Leave the value as blank if passing FundType as  "ALL", FT_FUND_KEY, MEXID, BLOOMBERG_IDENTIFIER, LIPPER_IDENTIFIER, ISIN, CUSIP, SEDOL, REUTERS_SYMBOL, WKN, VALEREN_SYMBOL, TICKER, Fund_CIC
+        required: true
+        schema:
+          type: string
+          default: US8802081039
+      - name: FundType
+        in: query
+        description: FundKey can be any of the following with value associated to FundType - ALL, FT_FUND_KEY, MEXID, BLOOMBERG_IDENTIFIER, LIPPER_IDENTIFIER, ISIN, CUSIP, SEDOL, REUTERS_SYMBOL, WKN, VALEREN_SYMBOL, TICKER, Fund_CIC
+        required: true
+        schema:
+          type: string
+          default: ISIN
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid Request
+  /funds/GetDistributionRate:
+    get:
+      tags:
+      - Detailed Product APIs
+      summary: Gets the dividends, capital gains, as of date, and distribution rate of product
+      description: The product distribution rate API contains the dividends, capital gains, as of date, and distribution rate. The dividend (or interest) earned is distributed to the client as a shareholder of the mutual fund or an exchange-traded fund (ETF). Dividends and capital gains can either be reinvest back into the fund or distribute to the shareholders.
+      operationId: GetDistributionRate
+      parameters:
+      - name: Authorization
+        in: header
+        description: Access Token (Note:Need to pass Access token, by generating through postman)
+        required: true
+        schema:
+          type: string
+          default: Bearer <Access_Token>
+      - name: Accept
+        in: header
+        description: application/xml or application/json
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: FundKey
+        in: query
+        description: FundKey can be any of the following - Leave the value as blank if passing FundType as "ALL", FT_FUND_KEY, MEXID, BLOOMBERG_IDENTIFIER, LIPPER_IDENTIFIER, ISIN, CUSIP, SEDOL, REUTERS_SYMBOL, WKN, VALEREN_SYMBOL, TICKER, Fund_CIC
+        required: true
+        schema:
+          type: string
+          default: US8802081039
+      - name: FundType
+        in: query
+        description: FundKey can be any of the following with value associated to FundType - ALL, FT_FUND_KEY, MEXID, BLOOMBERG_IDENTIFIER, LIPPER_IDENTIFIER, ISIN, CUSIP, SEDOL, REUTERS_SYMBOL, WKN, VALEREN_SYMBOL, TICKER, Fund_CIC
+        required: true
+        schema:
+          type: string
+          default: ISIN
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid Request
+  /funds/GetNAVHistory:
+    get:
+      tags:
+      - Detailed Product APIs
+      summary: Gets the product price history from inception of the product, or as far back as…
+      description: The product price history API contains mutual fund or an exchange-traded fund (ETF) daily historical prices, or net asset values (NAVs). The data goes back to inception of the product, or as far back as data is readily available.
+      operationId: GetNAVHistory
+      parameters:
+      - name: Authorization
+        in: header
+        description: Access Token (Note:Need to pass Access token, by generating through postman)
+        required: true
+        schema:
+          type: string
+          default: Bearer <Access_Token>
+      - name: Accept
+        in: header
+        description: application/xml or application/json
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: FundKey
+        in: query
+        description: FundKey can be any of the following - FundNumber, MEXID, BloombergIdentifier, LipperIdentifier, ISIN, CUSIP, SEDOL, Reuterssymbol, WKN, ValorenSymbol
+        required: true
+        schema:
+          type: string
+          default: US8802081039
+      - name: FundType
+        in: query
+        description: FundType can be any of the following - FundNumber, MEXID, BloombergIdentifier, LipperIdentifier, ISIN, CUSIP, SEDOL, Reuterssymbol, WKN, ValorenSymbol
+        required: true
+        schema:
+          type: string
+          default: ISIN
+      - name: FromDate
+        in: query
+        description: Date(YYYY-MM-DD) From which historical data needs to be fetched from
+        required: true
+        schema:
+          type: string
+          default: '2017-07-01'
+      - name: ToDate
+        in: query
+        description: Date(YYYY-MM-DD) till which historical data needs to be fetched to
+        required: true
+        schema:
+          type: string
+          default: '2017-08-31'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid Request
+  /funds/GetDistributionHistory:
+    get:
+      tags:
+      - Detailed Product APIs
+      summary: Gets the Product Dividend History from inception of the product, or as far back…
+      description: The product dividend history API contains the dividends, capital gains, as of date, distribution rate, ex-dividend date, dividend payable date, dividend record date, and reinvestment date. The data goes back to inception of the product, or as far back as data is readily available.
+      operationId: GetDistributionHistory
+      parameters:
+      - name: Authorization
+        in: header
+        description: Access Token (Note:Need to pass Access token, by generating through postman)
+        required: true
+        schema:
+          type: string
+          default: Bearer <Access_Token>
+      - name: Accept
+        in: header
+        description: application/xml or application/json
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: FundKey
+        in: query
+        description: FundKey can be any of the following - FundNumber, MEXID, BloombergIdentifier, LipperIdentifier, ISIN, CUSIP, SEDOL, Reuterssymbol, WKN, ValorenSymbol
+        required: true
+        schema:
+          type: string
+          default: US8802081039
+      - name: FundType
+        in: query
+        description: FundType can be any of the following - FundNumber, MEXID, BloombergIdentifier, LipperIdentifier, ISIN, CUSIP, SEDOL, Reuterssymbol, WKN, ValorenSymbol
+        required: true
+        schema:
+          type: string
+          default: ISIN
+      - name: FromDate
+        in: query
+        description: Date(YYYY-MM-DD) From which historical data needs to be fetched from
+        required: true
+        schema:
+          type: string
+          default: '2017-07-01'
+      - name: ToDate
+        in: query
+        description: Date(YYYY-MM-DD) till which historical data needs to be fetched to
+        required: true
+        schema:
+          type: string
+          default: '2017-08-30'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid Request
+  /funds/GetProductAUM:
+    get:
+      tags:
+      - Detailed Product APIs
+      summary: Gets the product AUM information. Templeton
+      description: The product AUM API contains the value per share of a mutual fund or an exchange-traded fund (ETF) as well as the shares outstanding on a specific date or time. The per-share dollar amount of the fund is based on the total value of all the securities in its portfolio, any liabilities the fund has and the number of fund shares outstanding.
+      operationId: GetProductAUM
+      parameters:
+      - name: Authorization
+        in: header
+        description: Access Token (Note:Need to pass Access token, by generating through postman)
+        required: true
+        schema:
+          type: string
+          default: Bearer <Access_Token>
+      - name: Accept
+        in: header
+        description: application/xml or application/json
+        required: true
+        schema:
+          type: string
+          default: application/json
+      - name: FundKey
+        in: query
+        description: FundKey can be any of the following - Leave the value as blank if passing FundType as "ALL", FT_FUND_KEY, MEXID, BLOOMBERG_IDENTIFIER, LIPPER_IDENTIFIER, ISIN, CUSIP, SEDOL, REUTERS_SYMBOL, WKN, VALEREN_SYMBOL, TICKER, Fund_CIC
+        required: true
+        schema:
+          type: string
+          default: US8802081039
+      - name: FundType
+        in: query
+        description: FundKey can be any of the following with value associated to FundType - ALL, FT_FUND_KEY, MEXID, BLOOMBERG_IDENTIFIER, LIPPER_IDENTIFIER, ISIN, CUSIP, SEDOL, REUTERS_SYMBOL, WKN, VALEREN_SYMBOL, TICKER, Fund_CIC
+        required: true
+        schema:
+          type: string
+          default: ISIN
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid Request

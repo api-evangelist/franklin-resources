@@ -1,7 +1,9 @@
 ---
 title: Three reasons tech could lead the market—again
 url: https://www.franklinresources.com/articles/2025/equity/three-reasons-tech-could-lead-the-market-again
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Franklin Resources" press release artificial intelligence'
 position: 4
 source: serpapi-google

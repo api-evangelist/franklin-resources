@@ -1,0 +1,24 @@
+{
+  "provider": "franklin-resources",
+  "sources": [
+    "_original/franklin-resources-detailed-product-apis-openapi.yml"
+  ],
+  "outputs": [
+    "franklin-resources-detailed-product-apis-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "2 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "franklin-resources-detailed-product-apis-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "franklin-resources-detailed-product-apis-openapi.yml: declared missing tag: Detailed Product APIs",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "_original/franklin-resources-productionproductapi-1.0.0.json: archived document superseded by a larger archived document",
+    "_original/franklin-resources-myapi-dev-1.0.0.json: archived document superseded by a larger archived document",
+    "franklin-resources-detailed-product-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
