@@ -48,7 +48,7 @@ tags:
 - Fortune 500
 - Investment Management
 - Asset Management
-- Financial-Services
+- Financial Services
 - Mutual Funds
 - Exchange-Traded Funds
 - Fund Data
@@ -62,6 +62,7 @@ tags_raw:
 - Exchange Traded Funds
 - Fund Data
 - Market Data
+- Financial-Services
 url: https://raw.githubusercontent.com/api-evangelist/franklin-resources/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
